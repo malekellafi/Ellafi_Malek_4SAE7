@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -18,4 +19,6 @@ public class Reservation implements Serializable {
     private long idReservation;
     private LocalDateTime anneeUniversitaire;
     private boolean estValide;
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<Etudiant> etudiants;
 }

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -17,4 +18,8 @@ public class Bloc implements Serializable {
     private long idBloc;
     private long nomBloc;
     private long capaciteBloc;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "bloc")
+    private Set<Chambre> chambres;
+    @ManyToOne
+    private Foyer foyer;
 }

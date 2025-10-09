@@ -1,10 +1,10 @@
 package org.example.ellafi_malek84sae7.entities;
-
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -18,4 +18,8 @@ public class Foyer implements Serializable {
     private long idFoyer;
     private String nomFoyer;
     private long capaciteFoyer;
+    @OneToOne(mappedBy = "foyer")
+    private Universite universite;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "foyer")
+    private Set<Bloc> blocs;
 }

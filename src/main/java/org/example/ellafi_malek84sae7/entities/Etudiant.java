@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -21,4 +22,7 @@ public class Etudiant implements Serializable {
     private long cin;
     private String ecole;
     private LocalDateTime dateNaissance;
+
+    @ManyToMany(mappedBy = "etudiants", cascade = CascadeType.ALL)
+    private Set<Reservation> reservations;
 }
