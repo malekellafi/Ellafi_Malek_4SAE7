@@ -2,6 +2,7 @@ package org.example.ellafi_malek84sae7.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 import java.io.Serializable;
 import java.util.Set;
@@ -13,6 +14,10 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 
+@Builder
+@EqualsAndHashCode
+
+@FieldDefaults(level = AccessLevel.PRIVATE)
 
 public class Chambre implements Serializable {
     @Id
