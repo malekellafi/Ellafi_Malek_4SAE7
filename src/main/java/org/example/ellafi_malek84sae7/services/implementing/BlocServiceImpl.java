@@ -17,13 +17,14 @@ public class BlocServiceImpl implements IBlocService {
 
     @Override
     public Bloc getBlocById(long id) {
-        return blocRepository.findById(id).orElse(null);
+        return blocRepository.findById(id).orElseThrow();
     }
 
     @Override
     public Bloc addBloc(Bloc bloc) {
         return blocRepository.save(bloc);
     }
+
 
     @Override
     public void deleteBloc(long id) {

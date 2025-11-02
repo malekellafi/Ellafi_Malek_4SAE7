@@ -4,7 +4,9 @@ import java.util.List;
 public interface IReservationService {
     List<Reservation> getAllReservations();
     Reservation getReservationById(long id);
-    void addReservation(Reservation reservation);
+    String addReservation(Reservation reservation);
     void updateReservation(Reservation reservation);
     void deleteReservation(Reservation reservation);
+
+
 }

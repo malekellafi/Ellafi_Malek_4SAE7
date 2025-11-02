@@ -8,7 +8,7 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class UniversiteServiceImpl implements IUniversiteService {
-    private UniversiteRepository universiteRepository;
+    private final UniversiteRepository universiteRepository;
     @Override
     public List<Universite> getAllUniversites() {
         return universiteRepository.findAll();
@@ -23,7 +23,7 @@ public class UniversiteServiceImpl implements IUniversiteService {
     }
     @Override
     public Universite getUniversiteById(Long id) {
-        return universiteRepository.findById(id).orElse(null);
+        return universiteRepository.findById(id).orElseThrow();
     }
     @Override
     public void deleteUniversite(Long id) {

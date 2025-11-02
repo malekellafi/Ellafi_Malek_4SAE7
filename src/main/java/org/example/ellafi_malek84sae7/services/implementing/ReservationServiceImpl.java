@@ -7,19 +7,22 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 @AllArgsConstructor
-public class ReservationServiceImpl implements IReservationService {
-    private ReservationRepository reservationRepository;
+class ReservationServiceImpl implements IReservationService {
+    private final ReservationRepository reservationRepository;
     @Override
     public List<Reservation> getAllReservations() {
+
         return reservationRepository.findAll();
     }
     @Override
     public Reservation getReservationById(long id) {
-        return reservationRepository.findById(id).orElse(null);
+
+        return reservationRepository.findById(id).orElseThrow();
     }
     @Override
-    public void addReservation(Reservation reservation) {
+    public String addReservation(Reservation reservation) {
         reservationRepository.save(reservation);
+        return null;
     }
     @Override
     public void updateReservation(Reservation reservation) {

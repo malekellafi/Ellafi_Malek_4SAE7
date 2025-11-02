@@ -8,7 +8,7 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class FoyerServiceImpl implements IFoyerService {
-    private FoyerRepository foyerRepository;
+    private final FoyerRepository foyerRepository;
     @Override
     public List<Foyer> getAllFoyers() {
         return foyerRepository.findAll();
@@ -19,7 +19,7 @@ public class FoyerServiceImpl implements IFoyerService {
     }
     @Override
     public Foyer getFoyerById(long id) {
-        return foyerRepository.findById(id).orElse(null);
+        return foyerRepository.findById(id).orElseThrow();
     }
     @Override
     public Foyer updateFoyer(Foyer foyer) {

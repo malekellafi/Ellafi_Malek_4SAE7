@@ -8,7 +8,7 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class ChambreServiceImpl implements IChmbreService {
-    private ChambreRepository chambreRepository;
+    private final ChambreRepository chambreRepository;
     @Override
     public List<Chambre> getAllChambres() {
         return chambreRepository.findAll();
@@ -27,6 +27,6 @@ public class ChambreServiceImpl implements IChmbreService {
     }
     @Override
     public Chambre getChambreById(Long id) {
-        return chambreRepository.findById(id).orElse(null);
+        return chambreRepository.findById(id).orElseThrow();
     }
 }

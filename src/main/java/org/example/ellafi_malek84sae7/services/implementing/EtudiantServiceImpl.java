@@ -8,7 +8,7 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class EtudiantServiceImpl implements IEtudiantService {
-    private EtudiantRepository etudiantRepository;
+    private final EtudiantRepository etudiantRepository;
 
     @Override
     public List<Etudiant> getAllEtudiants() {
@@ -17,7 +17,7 @@ public class EtudiantServiceImpl implements IEtudiantService {
 
     @Override
     public Etudiant getEtudiantById(Long id) {
-        return etudiantRepository.findById(id).orElse(null);
+        return etudiantRepository.findById(id).orElseThrow();
     }
     @Override
     public Etudiant addEtudiant(Etudiant etudiant) {
