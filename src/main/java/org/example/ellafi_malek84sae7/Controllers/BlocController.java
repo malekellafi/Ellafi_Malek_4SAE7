@@ -39,5 +39,12 @@ public class BlocController {
     public void updateBloc(@RequestBody Bloc bloc) {
         blocService.updateBloc(bloc);
     }
+    @PostMapping("/affecter-chambre")
+    public Bloc affecterChambreABloc(@RequestBody List<Long> numerosChambres , @RequestParam("idBloc") long idBloc) {
+        return blocService.affecterChambresABloc(numerosChambres, idBloc);
+    }
+
+
+
 
 }

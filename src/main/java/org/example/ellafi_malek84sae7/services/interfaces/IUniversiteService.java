@@ -7,4 +7,8 @@ public interface IUniversiteService {
     Universite updateUniversite(Universite universite);
     Universite getUniversiteById(Long id);
     void deleteUniversite(Long id);
+
+    Universite affecterFoyerAUniversite(long idFoyer, String nomUniversite);
+
+    Universite desaffecterFoyerAUniversite(long idUniversite);
 }

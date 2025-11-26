@@ -34,4 +34,10 @@ public class FoyerController {
     public List<Foyer> getAllFoyer() {
         return foyerService.getAllFoyers();
     }
+    @PostMapping("/ajouter-aafecter")
+    public Foyer ajouterFoyerEtAffecterAUniversite(@RequestBody Foyer foyer,
+                                                   @RequestParam("idUniversite") long idUniversite) {
+        return foyerService.ajouterFoyerEtAffecterAUniversite(foyer, idUniversite);
+    }
+
 }

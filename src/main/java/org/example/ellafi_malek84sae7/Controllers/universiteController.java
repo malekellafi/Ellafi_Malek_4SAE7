@@ -31,6 +31,14 @@ public class universiteController {
     public List<Universite> getAllUniversites() {
         return universiteService.getAllUniversites();
     }
-
+    @PutMapping("/affecter-foyer")
+    public Universite affecterFoyerAUniversite(@RequestParam("idFoyer") long idFoyer,
+                                               @RequestParam("nomUniversite") String nomUniversite) {
+        return universiteService.affecterFoyerAUniversite(idFoyer, nomUniversite);
+    }
+    @PutMapping("/desaffecter-foyer/{idUniversite}")
+    public Universite desaffecterFoyerAUniversite(@PathVariable("idUniversite") long idUniversite) {
+        return universiteService.desaffecterFoyerAUniversite(idUniversite);
+    }
 
 }
