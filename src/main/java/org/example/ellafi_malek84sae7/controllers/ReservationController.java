@@ -1,12 +1,8 @@
-package org.example.ellafi_malek84sae7.Controllers;
+package org.example.ellafi_malek84sae7.controllers;
 
 import org.example.ellafi_malek84sae7.entities.Reservation;
 import org.example.ellafi_malek84sae7.services.interfaces.IReservationService;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Collections;
-import java.util.List;
-
 
 
 @RestController

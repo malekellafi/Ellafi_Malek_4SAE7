@@ -1,4 +1,4 @@
-package org.example.ellafi_malek84sae7.Controllers;
+package org.example.ellafi_malek84sae7.controllers;
 
 import org.example.ellafi_malek84sae7.entities.Foyer;
 import org.example.ellafi_malek84sae7.services.interfaces.IFoyerService;

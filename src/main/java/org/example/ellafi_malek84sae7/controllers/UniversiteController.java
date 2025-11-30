@@ -1,4 +1,7 @@
-package org.example.ellafi_malek84sae7.Controllers;
+package org.example.ellafi_malek84sae7.controllers;
+
+
+
 
 import org.example.ellafi_malek84sae7.entities.Universite;
 import org.example.ellafi_malek84sae7.services.interfaces.IUniversiteService;
@@ -6,39 +9,48 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-public class universiteController {
+@RestController
+@RequestMapping("/universites")
+public class UniversiteController {
     private final IUniversiteService universiteService;
-    public universiteController(IUniversiteService universiteService) {
+
+    public UniversiteController(IUniversiteService universiteService) {
         this.universiteService = universiteService;
     }
-    @PostMapping("/adduniversite")
-    public Universite addUniversite(Universite universite) {
+
+    @PostMapping
+    public Universite addUniversite(@RequestBody Universite universite) {
         return universiteService.addUniversite(universite);
     }
-    @DeleteMapping("/deleteuniversite")
-    public void deleteUniversite(Universite universite) {
-        universiteService.deleteUniversite(universite.getIdUniversite());
+
+    @DeleteMapping("/{id}")
+    public void deleteUniversite(@PathVariable("id") long id) {
+        universiteService.deleteUniversite(id);
     }
-    @PutMapping("/updateuniversite")
-    public Universite updateUniversite(Universite universite) {
+
+    @PutMapping
+    public Universite updateUniversite(@RequestBody Universite universite) {
         return universiteService.updateUniversite(universite);
     }
+
     @GetMapping("/{id}")
     public Universite getUniversite(@PathVariable long id) {
         return universiteService.getUniversiteById(id);
     }
-    @GetMapping("/all")
+
+    @GetMapping
     public List<Universite> getAllUniversites() {
         return universiteService.getAllUniversites();
     }
+
     @PutMapping("/affecter-foyer")
     public Universite affecterFoyerAUniversite(@RequestParam("idFoyer") long idFoyer,
                                                @RequestParam("nomUniversite") String nomUniversite) {
         return universiteService.affecterFoyerAUniversite(idFoyer, nomUniversite);
     }
+
     @PutMapping("/desaffecter-foyer/{idUniversite}")
     public Universite desaffecterFoyerAUniversite(@PathVariable("idUniversite") long idUniversite) {
         return universiteService.desaffecterFoyerAUniversite(idUniversite);
     }
-
 }
